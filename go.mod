@@ -1,4 +1,4 @@
-module github.com/mellena1/mbta-v3-go
+module github.com/sdwalsh/mbta-v3-go
 
 go 1.12
 
