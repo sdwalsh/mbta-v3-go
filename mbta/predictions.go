@@ -26,10 +26,9 @@ type PredictionService service
 // Prediction holds all info about a given MBTA prediction
 type Prediction struct {
 	ID                   string                              `jsonapi:"primary,prediction"`
-	ArrivalTime          *TimeISO8601                        `jsonapi:"attr,arrival_time"`          // Time when the trip arrives at the given stop
-	DepartureTime        *TimeISO8601                        `jsonapi:"attr,departure_time"`        // Time when the trip departs the given stop
+	ArrivalTime          string                        `jsonapi:"attr,arrival_time"`          // Time when the trip arrives at the given stop
+	DepartureTime        string                        `jsonapi:"attr,departure_time"`        // Time when the trip departs the given stop
 	DirectionID          int                                 `jsonapi:"attr,direction_id"`          // Direction in which trip is traveling: 0 or 1.
-	ScheduleRelationship *PredictionScheduleRelationshipType `jsonapi:"attr,schedule_relationship"` // How the predicted stop relates to the Model.Schedule.t stops.
 	Status               *string                             `jsonapi:"attr,status"`                // Status of the schedule
 	StopSequence         int                                 `jsonapi:"attr,stop_sequence"`         // The sequence the stop_id is arrived at during the trip_id. The stop sequence is monotonically increasing along the trip, but the stop_sequence along the trip_id are not necessarily consecutive
 	Route                *Route                              `jsonapi:"relation,route"`             // Route that the prediction is linked with. Only includes id by default, use Include config option to get all data
